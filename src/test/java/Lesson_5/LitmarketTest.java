@@ -34,21 +34,21 @@ public class LitmarketTest {
         driver.get("https://litmarket.ru/");
     }
 
-        @Test
-        void registrationOnSite() {
-            driver.findElement(By.cssSelector(".header-login-btn")).click();
-            String email = "mail" + RandomStringUtils.randomNumeric(5) + "@gmail.com";
-            String password = "pass" + RandomStringUtils.randomNumeric(5);
-            actions.sendKeys(driver.findElement(By.xpath(".//input[@placeholder ='Email']")), email)
-                    .sendKeys(driver.findElement(By.xpath(".//input[@placeholder ='Пароль']")), password)
-                    .click(driver.findElement(By.xpath(".//input[@value='Регистрация']")))
-                    .build()
-                    .perform();
-            new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(By.cssSelector(".checkbox-material > .check")));
-            driver.findElement(By.cssSelector(".checkbox-material > .check")).click();
-            driver.findElement(By.id("approve_role")).click();
-            Assertions.assertTrue(driver.findElement(By.xpath(".//p[@class = 'nickname-wrapper']")).isDisplayed());
-        }
+    @Test
+    void registrationOnSite() {
+        driver.findElement(By.cssSelector(".header-login-btn")).click();
+        String email = "mail" + RandomStringUtils.randomNumeric(5) + "@gmail.com";
+        String password = "pass" + RandomStringUtils.randomNumeric(5);
+        actions.sendKeys(driver.findElement(By.xpath(".//input[@placeholder ='Email']")), email)
+                .sendKeys(driver.findElement(By.xpath(".//input[@placeholder ='Пароль']")), password)
+                .click(driver.findElement(By.xpath(".//input[@value='Регистрация']")))
+                .build()
+                .perform();
+        new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(By.cssSelector(".checkbox-material > .check")));
+        driver.findElement(By.cssSelector(".checkbox-material > .check")).click();
+        driver.findElement(By.id("approve_role")).click();
+        Assertions.assertTrue(driver.findElement(By.xpath(".//p[@class = 'nickname-wrapper']")).isDisplayed());
+    }
 
 
 
