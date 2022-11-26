@@ -43,4 +43,13 @@ public class NavigationBlock extends BaseView {
     public WebElement getNicknameWrapperButton() {
         return nicknameWrapperButton;
     }
+
+    @FindBy(xpath = "//i[@class='lmfont-logout']")
+    private WebElement exitButton;
+
+    public MainPage clickExitButton() {
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(nicknameWrapperButton)).click();
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(exitButton)).click();
+        return new MainPage(driver);
+    }
 }
